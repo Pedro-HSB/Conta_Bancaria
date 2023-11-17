@@ -14,10 +14,10 @@ public class Menu {
 
 		while (true) {
 
-			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
+			System.out.println(Cores.TEXT_BLACK_BOLD + Cores.ANSI_BLACK_BACKGROUND_BRIGHT
 					+ "*****************************************************");
 			System.out.println("                                                     ");
-			System.out.println("                BANCO DO BRAZIL COM Z                ");
+			System.out.println("                BANCO COM B               ");
 			System.out.println("                                                     ");
 			System.out.println("*****************************************************");
 			System.out.println("                                                     ");
@@ -38,7 +38,7 @@ public class Menu {
 			opcao = leia.nextInt();
 
 			if (opcao == 9) {
-				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				System.out.println(Cores.TEXT_BLACK_BOLD + "\n Obrigado pela preferencia");
 				sobre();
 				leia.close();
 				System.exit(0);
@@ -86,11 +86,10 @@ public class Menu {
 	}
 
 	public static void sobre() {
-		System.out.println(Cores.TEXT_GREEN);
+		System.out.println(Cores.TEXT_BLACK_BOLD);
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: ");
-		System.out.println("Generation Brasil - generation@generation.org");
-		System.out.println("github.com/conteudoGeneration");
+		System.out.println("pedro henrique santos bernardo");
 		System.out.println("*********************************************************");
 		System.out.println(Cores.TEXT_RESET);
 	}
