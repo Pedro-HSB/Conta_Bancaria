@@ -3,6 +3,7 @@ package conta;
 import java.util.Scanner;
 
 import conta.util.Cores;
+import model.Conta;
 
 public class Menu {
 
@@ -11,10 +12,23 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
+		
+		Conta c1 = new Conta(1, 123, 1, "Victória Moraes", 100000.00f);
+		c1.visualizar();
+		System.out.println("Exibir o Saldo: " + c1.getSaldo());
+		c1.setSaldo(200000.00f);
+		c1.visualizar();
+		c1.sacar(210000.00f);
+		c1.visualizar();
+		c1.depositar(5000.00f);
+		c1.visualizar();
+
+		Conta c2 = new Conta(2, 123, 1, "Vitor Nascimento", 300000.00f);
+		c2.visualizar();
 
 		while (true) {
 
-			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
+			System.out.println(Cores.TEXT_BLACK_BOLD + Cores.ANSI_BLACK_BACKGROUND_BRIGHT
 					+ "*****************************************************");
 			System.out.println("                                                     ");
 			System.out.println("                BANCO DO BRAZIL COM Z                ");
@@ -38,7 +52,7 @@ public class Menu {
 			opcao = leia.nextInt();
 
 			if (opcao == 9) {
-				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				System.out.println(Cores.TEXT_BLACK_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
 				sobre();
 				leia.close();
 				System.exit(0);
@@ -86,11 +100,10 @@ public class Menu {
 	}
 
 	public static void sobre() {
-		System.out.println(Cores.TEXT_GREEN);
+		System.out.println(Cores.TEXT_BLACK_BOLD);
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto Desenvolvido por: ");
-		System.out.println("Generation Brasil - generation@generation.org");
-		System.out.println("github.com/conteudoGeneration");
+		System.out.println("pedro henrique santos bernardo");
 		System.out.println("*********************************************************");
 		System.out.println(Cores.TEXT_RESET);
 	}
