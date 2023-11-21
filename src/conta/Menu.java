@@ -5,6 +5,7 @@ import java.util.Scanner;
 import conta.util.Cores;
 import model.Conta;
 import contas.CurrentAccount;
+import contas.SavingsAccount;
 public class Menu {
 
 	public static void main(String[] args) {
@@ -13,11 +14,13 @@ public class Menu {
 
 		int opcao;
 
-		CurrentAccount conta1 = new CurrentAccount(32,33,"conta corrente","tadeu",4000.0f,3000.0f);
-		System.out.println("o seu saldo e " + conta1.getSaldo());
-		conta1.sacar(3100);
-		System.out.println("o seu saldo e " + conta1.getSaldo());
+		CurrentAccount contaCu1 = new CurrentAccount(32,33,"conta corrente","tadeu",4000.0f,3000.0f);
+		System.out.println("o seu saldo e " + contaCu1.getSaldo());
+		contaCu1.sacar(3100);
+		System.out.println("o seu saldo e " + contaCu1.getSaldo());
 		
+		SavingsAccount contaSa1 = new SavingsAccount(32,33,"conta corrente","tadeu",4000.0f,"10/10/2000");
+		contaSa1.mesVersario(0.10f);
 
 //		while (true) {
 //

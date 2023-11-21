@@ -1,6 +1,6 @@
 package contas;
 
-public class BankAccount {
+public abstract class BankAccount {
 	
 	private int numero;
 	private int agencia;
