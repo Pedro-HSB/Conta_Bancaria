@@ -1,16 +1,20 @@
-package contas;
+package conta_bancaria.model;
 
-public class CurrentAccount extends BankAccount{
+
+public class CurrentAccount extends Conta{
 	
 	private float limite;
 	
-	public CurrentAccount(int numero, int agencia, String tipo, String titular, float saldo,float limite) {
+	public CurrentAccount(int numero, int agencia, int tipo, String titular, float saldo,float limite) {
 		super(numero,agencia,tipo,titular,saldo);
 		
 		this.limite = limite;
 	}
 	
 	public float getLimite() {
+		if(this.getSaldo() < 0)
+			return this.limite - Math.abs(this.getSaldo());
+		
 		return limite;
 	}
 	
@@ -32,5 +36,11 @@ public class CurrentAccount extends BankAccount{
 		System.out.println("\n Valor Sacado com sucesso");
 		return true;
 		
+	}
+	
+	@Override
+	public void visualizar() {
+		super.visualizar();
+		System.out.println("Limite da conta: " + this.getLimite());
 	}
 }	

@@ -1,11 +1,11 @@
-package contas;
+package conta_bancaria.model;
 
-public class SavingsAccount extends BankAccount{
+public class SavingsAccount extends Conta{
 
 	private String dt_niver;
 	private float niver;
 	
-	public SavingsAccount(int numero, int agencia, String tipo, String titular, float saldo,String dt_niver) {
+	public SavingsAccount(int numero, int agencia, int tipo, String titular, float saldo,String dt_niver) {
 		super(numero, agencia, tipo, titular, saldo);
 		
 		this.dt_niver = dt_niver;
@@ -31,6 +31,12 @@ public class SavingsAccount extends BankAccount{
 	public void mesVersario(float niver)
 	{
 		System.out.println("\n seu saldo agora e: " + (this.getSaldo()*niver));
+	}
+	
+	@Override
+	public void visualizar() {
+		super.visualizar();
+		System.out.println("Limite da conta: " + this.getNiver());
 	}
 
 }
