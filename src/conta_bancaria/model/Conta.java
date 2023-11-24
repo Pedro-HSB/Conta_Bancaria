@@ -6,12 +6,13 @@ public abstract class Conta {
 		// TODO Auto-generated method stub
 
 	}
+
 	private int numero;
 	private int agencia;
 	private int tipo;
 	private String titular;
 	private float saldo;
-	
+
 	// Criamos o Método Construtor
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
@@ -21,7 +22,7 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 
-	// Criamos os Métodos Get e Set 
+	// Criamos os Métodos Get e Set
 	public int getNumero() {
 		return numero;
 	}
@@ -61,32 +62,32 @@ public abstract class Conta {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
-	
+
 	public boolean sacar(float valor) {
-		
-		if( this.getSaldo() < valor){
+
+		if (this.getSaldo() < valor) {
 			System.out.println("\nSaldo Insuficiente");
 			return false;
 		}
-		
+
 		this.setSaldo(this.getSaldo() - valor);
 		return true;
 	}
-	
+
 	public void depositar(float valor) {
 		this.setSaldo(this.getSaldo() + valor);
 	}
-	
+
 	// Método auxiliar visualizar()
 	public void visualizar() {
-		
+
 		String tipo = "";
-		
-		switch(this.tipo) {
-			case 1 -> tipo = "Conta Corrente";
-			case 2 -> tipo = "Conta Poupança";		
+
+		switch (this.tipo) {
+		case 1 -> tipo = "Conta Corrente";
+		case 2 -> tipo = "Conta Poupança";
 		}
-		
+
 		System.out.println("\n\n***************************************");
 		System.out.println("Dados da Conta");
 		System.out.println("***************************************");
