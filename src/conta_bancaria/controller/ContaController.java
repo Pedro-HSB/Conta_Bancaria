@@ -95,8 +95,7 @@ public class ContaController implements ContaRepository {
 			if (contaOrigem.get().sacar(valor) == true) {
 				contaDestino.get().depositar(valor);
 				System.out.println("a transferir foi efetuado com sucesso!");
-			}
-			else
+			} else
 				System.out.println("A Conta número: " + numero + " não foi encontrada!");
 	}
 

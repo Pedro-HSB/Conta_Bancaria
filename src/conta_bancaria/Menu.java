@@ -1,6 +1,7 @@
 package conta_bancaria;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.Scanner;
 
 import conta_bancaria.controller.ContaController;
@@ -110,6 +111,42 @@ public class Menu {
 				break;
 			case 4:
 				System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
+				
+				Optional<Conta> conta = contas.buscarNaCollection(numero);
+				
+				if(conta.isPresent()) {
+					
+					System.out.println("Digite o número da Agência: ");
+					agencia = leia.nextInt();
+					
+					System.out.println("Digite o nome do Titular: ");
+					leia.skip("\\R");
+					titular = leia.nextLine();
+					
+					tipo = conta.get().getTipo();
+					
+					System.out.println("Digite o Saldo da conta: ");
+					saldo = leia.nextFloat();
+					
+					switch(tipo) {
+						case 1 -> {
+							System.out.println("Digite o limite da conta: ");
+							limite = leia.nextFloat();
+							contas.atualizar(new CurrentAccount(numero, agencia, tipo, titular, saldo, limite));
+						}
+						case 2 -> {
+							System.out.println("Digite o dia do aniversário da conta: ");
+							leia.skip("\\R");
+							dt_niver = leia.nextLine();
+							contas.atualizar(new SavingsAccount(numero, agencia, tipo, titular, saldo, dt_niver));
+						}
+					}
+					
+				}else
+					System.out.println("A Conta número: " + numero + " Não foi encontrada!");
+				
 				keyPress();
 				break;
 			case 5:
@@ -151,10 +188,15 @@ public class Menu {
 				System.out.println("Digite o número da conta Destino: ");
 				numeroDestino = leia.nextInt();
 				
+				if(numero!=numeroDestino) {
 				System.out.println("Digite o valor do Depósito: ");
 				valor = leia.nextFloat();
 				
 				contas.transferir(numero, numeroDestino, valor);
+				}
+				else {
+					System.out.println("contas identicas");
+				}
 				keyPress();
 				break;
 			default:
