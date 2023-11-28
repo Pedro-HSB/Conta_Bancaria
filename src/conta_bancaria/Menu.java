@@ -19,7 +19,7 @@ public class Menu {
 		ContaController contas = new ContaController();
 
 		int opcao, numero, agencia, tipo,numeroDestino;
-		String titular, dt_niver;
+		String titular, dt_niver,nome;
 		float saldo, limite,valor;
 
 		CurrentAccount cC1 = new CurrentAccount(contas.gerarNumero(), 33, 1, "ateu", 4000.0f, 3000.0f);
@@ -45,7 +45,8 @@ public class Menu {
 			System.out.println("            6 - Sacar                                ");
 			System.out.println("            7 - Depositar                            ");
 			System.out.println("            8 - Transferir valores entre Contas      ");
-			System.out.println("            9 - Sair                                 ");
+			System.out.println("            9 - Buscar Conta por Numero              ");
+			System.out.println("            10 - Sair                                 ");
 			System.out.println("                                                     ");
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
@@ -53,7 +54,7 @@ public class Menu {
 
 			opcao = leia.nextInt();
 
-			if (opcao == 9) {
+			if (opcao == 10) {
 				System.out.println(Cores.TEXT_BLACK_BOLD + "\n Obrigado pela preferencia");
 				sobre();
 				leia.close();
@@ -199,6 +200,16 @@ public class Menu {
 				}
 				keyPress();
 				break;
+			case 9:
+				System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por nome\n\n");
+
+				System.out.println("Digite o nome do titular da conta: ");
+				leia.skip("\\R");
+				nome = leia.nextLine();
+
+				contas.procurarPorNome(nome);
+
+				keyPress();
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
 				keyPress();
